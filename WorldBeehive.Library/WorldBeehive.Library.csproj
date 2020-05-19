@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5F8EC86-A10C-4DDF-A2A8-0FBD3C5B7A02}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorldBeehive.Library</RootNamespace>
+    <AssemblyName>WorldBeehive.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=5.1.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.5.1.4\lib\net461\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DependencyInjection\ContainerConfig.cs" />
+    <Compile Include="Enums\BeeBehaviorEnum.cs" />
+    <Compile Include="Enums\BeeEnvironmentEnum.cs" />
+    <Compile Include="Enums\FlowerLifeCycleEnum.cs" />
+    <Compile Include="Enums\BeeEnvironmentBehaviorEnum.cs" />
+    <Compile Include="Enums\LivingEntityEnum.cs" />
+    <Compile Include="Enums\MovementDirectionEnum.cs" />
+    <Compile Include="Factory\LifeFactory.cs" />
+    <Compile Include="Interfaces\IBee.cs" />
+    <Compile Include="Interfaces\IBeeBehaviorResolver.cs" />
+    <Compile Include="Interfaces\IBeeCommon.cs" />
+    <Compile Include="Interfaces\IBeeManager.cs" />
+    <Compile Include="Interfaces\IBeeWingsMovementCycle.cs" />
+    <Compile Include="Interfaces\IBeeWingsMovementInvoker.cs" />
+    <Compile Include="Interfaces\IBehaviorCommand.cs" />
+    <Compile Include="Interfaces\IFlower.cs" />
+    <Compile Include="Interfaces\IFlowerLifeCycle.cs" />
+    <Compile Include="Interfaces\IFlowerManager.cs" />
+    <Compile Include="Interfaces\IMovementBehaviorCommandInvoker.cs" />
+    <Compile Include="Interfaces\ILifeFactory.cs" />
+    <Compile Include="Interfaces\ILinearMovementStrategy.cs" />
+    <Compile Include="Interfaces\ILivingBeing.cs" />
+    <Compile Include="Interfaces\IMovementSelector.cs" />
+    <Compile Include="Interfaces\IRandomMovenentBehavior.cs" />
+    <Compile Include="Interfaces\ITargetedMovementBehavior.cs" />
+    <Compile Include="Models\BeeWingMovementCycle.cs" />
+    <Compile Include="Models\BeeWingsInEnvironment.cs" />
+    <Compile Include="Models\BehaviorType.cs" />
+    <Compile Include="Models\FlowerCycle.cs" />
+    <Compile Include="Models\LivingCreature.cs" />
+    <Compile Include="ModuleBeehive\BeehiveManager.cs" />
+    <Compile Include="Interfaces\IBeehiveManager.cs" />
+    <Compile Include="Interfaces\IBeehiveMediator.cs" />
+    <Compile Include="Interfaces\ILandscape.cs" />
+    <Compile Include="Interfaces\IWorldMediator.cs" />
+    <Compile Include="ModuleBee\BeeBehaviorResolver.cs" />
+    <Compile Include="ModuleBee\BeeCommon.cs" />
+    <Compile Include="ModuleBee\BeeManager.cs" />
+    <Compile Include="ModuleBee\BeeWingsMovementCycle.cs" />
+    <Compile Include="ModuleBee\BeeWingsMovementInvoker.cs" />
+    <Compile Include="ModuleFlower\FlowerLifeCycle.cs" />
+    <Compile Include="ModuleFlower\FlowerManager.cs" />
+    <Compile Include="ModuleWorld\LandscapeManager.cs" />
+    <Compile Include="ModuleBeehive\Mediators\BeehiveMediator.cs" />
+    <Compile Include="MovementStrategy\BehaviorTypes\RandomMovementBehavior.cs" />
+    <Compile Include="MovementStrategy\BehaviorTypes\TargetedMovementBehavior.cs" />
+    <Compile Include="MovementStrategy\MovementBehaviorCommandInvoker.cs" />
+    <Compile Include="MovementStrategy\MovementTypes\LinearMovementStrategy.cs" />
+    <Compile Include="MovementStrategy\MovementSelector.cs" />
+    <Compile Include="ViewModels\Bee.cs" />
+    <Compile Include="ViewModels\Flower.cs" />
+    <Compile Include="ModuleWorld\Mediators\WorldMediator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorldBeehive.Common\WorldBeehive.Common.csproj">
+      <Project>{0839658f-cfaa-44f4-89b6-c338ef0c99fb}</Project>
+      <Name>WorldBeehive.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Bee animation 1a.png" />
+    <Content Include="Resources\Bee animation 2a.png" />
+    <Content Include="Resources\Bee animation 3a.png" />
+    <Content Include="Resources\Bee animation 4a.png" />
+    <None Include="Resources\Bee animation-transparent.png" />
+    <Content Include="Resources\Bee-animation-1.png" />
+    <Content Include="Resources\Bee-animation-2.png" />
+    <Content Include="Resources\Bee-animation-3.png" />
+    <Content Include="Resources\Bee-animation-4.png" />
+    <None Include="Resources\Bee-animation-transparent.png" />
+    <Content Include="Resources\Flower.png" />
+    <Content Include="Resources\Hive_inside.png" />
+    <Content Include="Resources\Hive_outside.png" />
+    <Content Include="Resources\plant01.png" />
+    <Content Include="Resources\plant019.png" />
+    <Content Include="Resources\plant02.png" />
+    <Content Include="Resources\plant03.png" />
+    <Content Include="Resources\plant04.png" />
+    <Content Include="Resources\plant05.png" />
+    <Content Include="Resources\plant06.png" />
+    <Content Include="Resources\plant07.png" />
+    <Content Include="Resources\plant08.png" />
+    <Content Include="Resources\plant09.png" />
+    <Content Include="Resources\plant10.png" />
+    <Content Include="Resources\plant11.png" />
+    <Content Include="Resources\plant12.png" />
+    <Content Include="Resources\plant13.png" />
+    <Content Include="Resources\plant14.png" />
+    <Content Include="Resources\plant15.png" />
+    <Content Include="Resources\plant16.png" />
+    <Content Include="Resources\plant17.png" />
+    <Content Include="Resources\plant18.png" />
+    <Content Include="Resources\plant19.png" />
+    <Content Include="Resources\plant20.png" />
+    <None Include="Resources\plant21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
